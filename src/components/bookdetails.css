@@ -1,0 +1,82 @@
+.box{
+    padding: 5vh 5vw;
+
+}
+
+.top-box-book-detail{
+    padding: 10px 0;
+    align-items: center;
+    text-align: center;
+
+}
+
+.top-box-book-detail img{
+    border-radius: 15px;
+    margin-right: 10px;
+}
+
+.tag{
+    background-color: #444;
+    margin: 5px 5px 5px 0;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.tag-box{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #2d2d2d;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.info-box-inner-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info-box-inner-box p{
+    display: flex;
+    align-items: center;
+}
+
+.info-box-inner-box .icon{
+    margin-right: 5px;
+}
+
+.link{
+    float: right;
+    margin-right: 10px;
+    color: plum;
+}
+
+.description-container{
+    margin: 10px 0;
+}
+
+.about-text{
+    font-size: 20px;
+}
+
+.top-box-book-detail .top-div{
+    position: relative;
+}
+
+.play-pause{
+    background-color: #333;
+    padding: 20px;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    top: 40%;
+    right: 45%;
+}

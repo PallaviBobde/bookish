@@ -1,0 +1,21 @@
+.animated-beats {
+  width: 150px;
+  height: 100px;
+  position: absolute;
+  top:40%;
+  right:15%;
+}
+
+.flextheicon{
+  position: relative;
+}
+
+.song-svg {
+  width: 200px;
+  height: 50px;
+}
+
+.beat {
+  stroke: #3e92cc;
+  stroke-width: 3;
+}
