@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchBooksByCategory } from "../api";
 import BookList from "../components/BookList";
 import ImageBox from "../components/ImageBox";
-import { IoMdArrowRoundBack } from "react-icons/io";
 
 const CategoriesPage = () => {
   const { category } = useParams();
@@ -12,7 +11,7 @@ const CategoriesPage = () => {
 
   useEffect(() => {
     const getBooks = async () => {
-      const response = await fetchBooksByCategory(category);
+      const response = await fetchBooksByCategory(category ||  '');
       setBooks(response.data.items);
     };
 
@@ -21,7 +20,7 @@ const CategoriesPage = () => {
 
   return (
     <div>
-      <ImageBox query={category} showBackBtn />
+      <ImageBox query={category || ''} showBackBtn />
       <p className="headline">Some {category} Books for you ..</p>
       {books && <BookList books={books} />}
     </div>

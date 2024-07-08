@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import CategoryList from "../components/CategoryList";
 import SearchBooks from "../components/SearchBooks";
 import { useState } from "react";
-import { fetchBooks } from "../api";
 import BookList from "../components/BookList";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";

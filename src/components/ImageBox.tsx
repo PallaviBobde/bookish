@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 const ImageBox = ({ query, showBackBtn =false}:{
-  query:string,showBackBtn:boolean
+  query:string,showBackBtn?:boolean
 }) => {
   const [images, setImages] = useState<
     {

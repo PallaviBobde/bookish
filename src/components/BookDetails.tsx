@@ -36,7 +36,7 @@ const BookDetails = () => {
 
   useEffect(() => {
     const getBookDetails = async () => {
-      const response = await fetchBookDetails(id);
+      const response = await fetchBookDetails(id || '');
       setBook(response.data);
     };
 

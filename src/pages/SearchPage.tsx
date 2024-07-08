@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SearchBooks from "../components/SearchBooks";
 import { fetchBooks } from "../api";
 import BookList from "../components/BookList";
 import ImageBox from "../components/ImageBox";
-import AnimatedBeats from "../components/AnimatedBeat";
 import CategoryList from "../components/CategoryList";
 
 const SearchPage = () => {
   const [books, setBooks] = useState([]);
 
-  const handleSearch = async (query) => {
+  const handleSearch = async (query:string) => {
     const response = await fetchBooks(query);
     setBooks(response.data.items);
   };
