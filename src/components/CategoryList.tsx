@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import './categorylist.css';
 import { MdNaturePeople } from "react-icons/md";

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FormEvent, useState } from "react";
 import './search.css';
 import { FaSearch } from "react-icons/fa";

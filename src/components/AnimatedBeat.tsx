@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./AnimatedBeats.css"; // Import your CSS file for styling
 
 const AnimatedBeats = ({ flextheicon=false}:{
