@@ -5,8 +5,18 @@ import './imagebox.css';
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-const ImageBox = ({ query, showBackBtn =false}) => {
-  const [images, setImages] = useState([]);
+const ImageBox = ({ query, showBackBtn =false}:{
+  query:string,showBackBtn:boolean
+}) => {
+  const [images, setImages] = useState<
+    {
+      id: string;
+      urls: {
+        regular: string;
+      };
+      alt_description:string;
+    }[]
+  >([]);
   const navigate = useNavigate();
 
   useEffect(() => {

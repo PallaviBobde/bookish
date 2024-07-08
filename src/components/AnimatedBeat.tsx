@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./AnimatedBeats.css"; // Import your CSS file for styling
 
-const AnimatedBeats = ({ flextheicon=false}) => {
-  const [lines, setLines] = useState([]);
+const AnimatedBeats = ({ flextheicon=false}:{
+  flextheicon?:boolean
+}) => {
+  const [lines, setLines] = useState<{
+    id: number;
+    height: number;
+}[]>([]);
 
   // Generate random heights for lines on initial mount
   useEffect(() => {
-    const initialLines = generateRandomLines();
+    const initialLines: {
+      id: number;
+      height: number;
+    }[] = generateRandomLines();
     setLines(initialLines);
 
     // Update lines every few seconds

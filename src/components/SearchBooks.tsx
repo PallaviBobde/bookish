@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import { FormEvent, useState } from "react";
 import './search.css';
 import { FaSearch } from "react-icons/fa";
 
-const SearchBooks = ({ onSearch }) => {
+const SearchBooks = ({ onSearch }:{
+  onSearch:(q:string)=>void;
+}) => {
   const [query, setQuery] = useState("");
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSearch(query);
   };

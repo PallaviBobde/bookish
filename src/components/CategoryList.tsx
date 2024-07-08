@@ -6,8 +6,6 @@ import { MdOutlineScience } from "react-icons/md";
 import { BsClockHistory } from "react-icons/bs";
 import { GrTechnology } from "react-icons/gr";
 
-const categories = ["Fiction", "Science", "History", "Technology"];
-
 const CategoryList = () => {
   return (
     <div className="category-container">

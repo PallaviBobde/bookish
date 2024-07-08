@@ -2,7 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./booklist.css";
 
-const BookList = ({ books }) => {
+const BookList = ({ books }:{
+  books:{
+    volumeInfo:{
+      imageLinks:{
+        thumbnail:string;
+      },
+      authors:string[];
+      title:string;
+    },
+    id:string;
+  }[]
+}) => {
   return (
     <div className="booklist-container">
       {books.map((book) => {

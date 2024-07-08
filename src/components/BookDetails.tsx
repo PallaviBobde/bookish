@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
   Link,
-  unstable_HistoryRouter,
   useNavigate,
   useParams,
 } from "react-router-dom";
 import { fetchBookDetails } from "../api";
-import ImageBox from "./ImageBox";
 import "./bookdetails.css";
 import { RiPagesLine } from "react-icons/ri";
 import { MdOutlinePeopleOutline } from "react-icons/md";
@@ -19,7 +17,22 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 const BookDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [book, setBook] = useState(null);
+  const [book, setBook] = useState<{
+    volumeInfo: {
+      imageLinks: {
+        thumbnail: string;
+      };
+      authors: string[];
+      title: string;
+      description: string;
+      pageCount: number;
+      averageRating: number;
+      ratingsCount: number;
+      categories: string[];
+      infoLink:string;
+    };
+    id: string;
+  } | null>(null);
 
   useEffect(() => {
     const getBookDetails = async () => {
@@ -32,26 +45,26 @@ const BookDetails = () => {
 
   const [isSpeaking, setIsSpeaking] = useState(false);
   let utterance = null;
-  const utteranceRef = useRef(null);
+  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   const getVoices = () => {
     return window.speechSynthesis.getVoices();
   };
 
-  function extractTextFromHTML(html) {
+  function extractTextFromHTML(html:string) {
     const doc = new DOMParser().parseFromString(html, "text/html");
     return doc.body.textContent || "";
   }
 
   const speak = () => {
-    if (!book.volumeInfo.description) return;
+    if (!book?.volumeInfo?.description) return;
 
     utterance = new SpeechSynthesisUtterance(
       extractTextFromHTML(book.volumeInfo.description)
     );
     utterance.rate = 0.6;
     utterance.pitch = 1.0;
-    utterance.voice = getVoices().find((voice) => voice.lang === "en-US");
+    utterance.voice = getVoices().find((voice) => voice.lang === "en-US") || null;
     utterance.onend = () => setIsSpeaking(false);
 
     window.speechSynthesis.speak(utterance);
@@ -140,7 +153,7 @@ const BookDetails = () => {
 
             <div className="tag-box">
               {book.volumeInfo.categories.slice(0, 5).map((i) => {
-                return <p className="tag">{i}</p>;
+                return <p className="tag" key={i}>{i}</p>;
               })}
             </div>
             {book?.volumeInfo?.description && (
